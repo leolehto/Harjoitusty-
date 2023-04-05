@@ -1,0 +1,23 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>NFL Teams</title>
+	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+	
+</head>
+<body>
+<h1>Edit</h1>
+<form th:object="${team}" th:action="@{../save}" action="#" method="post">
+<input type="hidden" th:field="*{id}" class="form-control"/>
+<input type="text" th:field="*{name}" />
+<input type="text" th:field="*{qb}" />
+ <label for="divlist">Division</label>
+ <select id="divlist" th:field="*{division}" class="form-control">
+ 	<option th:each="division:${divisions}"
+ 			th:value="${division.divisionid}"
+ 			th:text="${division.name}"></option>
+ </select>
+ <input type="submit" class="btn btn-success" value="Save"></input>
+</form>
+</body>
+</html>
