@@ -18,11 +18,14 @@
  			th:value="${division.divisionid}"
  			th:text="${division.name}"></option>
  </select>
+ <label for="conlist">Conference</label>
+ <select id="conlist" th:field="*{conference}" class="form-control">
+ 	<option th:each="conference:${conferences}"
+ 			th:value="${conference.conferenceid}"
+			th:text="${conference.name}"></option> 
+ </select>
  
  <input type = "submit" class= "btn btn-success" value="save"></input>
 </form>
-
-
-
 </body>
 </html>

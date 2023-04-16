@@ -15,23 +15,34 @@
 	<h3></h3>
 </div>
 
-</div>
+<div>
 <table class="table table-striped">
 <tr>
 	<th>Team name</th>
 	<th>Quarter back</th>
 	<th>Division</th>
+	<th>Conference</th>
+	<th>Delete team</th>
+	<th>Edit team</th>
+	<th sec:authorize="hasAuthority('ADMIN')"> </th>
 	
 </tr>
 <tr th:each= "team : ${teams}" >
-	<td th:text= "${team.name}">title</td>
-	<td th:text= "${team.qb}">author</td>
+	<td th:text= "${team.name}">Name</td>
+	<td th:text= "${team.qb}">Qb</td>
 	<td th:text="${team.division}?${team.division.name}">Division</td>
-	<td><a th:href ="@{/delete/{id}(id = ${team.id})}" class = "btn btn-danger">Delete</a></td>
-	<td><a th:href ="@{/edit/{id}(id = ${team.id})}" class= "btn btn-success">Edit</a></td>
+	<td th:text="${team.conference}?${team.conference.name}">Conference</td>
+	<td sec:authorize="hasAuthority('ADMIN')"><a th:href ="@{/delete/{id}(id = ${team.id})}" class = "btn btn-danger">Delete</a></td>
+	<td sec:authorize="hasAuthority('ADMIN')"><a th:href ="@{/edit/{id}(id = ${team.id})}" class= "btn btn-success">Edit</a></td>
 </tr>
 </table>
 	<a href="/add" class= "btn btn-success" >Add Team</a>
+</div>
+<div class="col-md-4" style="padding:20px 0">
+	<form th:action="@{/logout}" method="post">
+			<input type="submit" value="Sign Out" class="btn btn-sm btn-danger"/>
+		</form>
 
-</body>
+</div>
+
 </html>

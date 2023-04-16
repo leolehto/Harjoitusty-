@@ -20,15 +20,23 @@ public class Team {
 	@JoinColumn(name = "divisionid")
 	private Division division;
 	
+	@ManyToOne
+	@JoinColumn(name = "conferenceid")
+	private Conference conference;
+	
 	public Team() {
 
 	}
 	
-	public Team(String name, String qb, Division division) {
+	public Team(String name, String qb, Division division, Conference conference) {
 		super();
 		this.name = name;
 		this.qb = qb;
+		this.division = division;
+		this.conference = conference;
 	}
+
+	
 
 	public void setId(long id) {
 		this.id = id;
@@ -63,7 +71,13 @@ public class Team {
 	public void setDivision(Division division) {
 		this.division = division;
 	}
+	public Conference getConference() {
+		return conference;
+	}
 
+	public void setConference(Conference conference) {
+		this.conference = conference;
+	}
 	@Override
 	public String toString() {
 		return "Team [id=" + id + ", name=" + name + ", qb=" + qb + "]";
