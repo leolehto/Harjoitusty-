@@ -20,7 +20,9 @@ public class Conference {
 	@JsonIgnore
 	@OneToMany(cascade = CascadeType.ALL, mappedBy = "conference")
 	private List<Team> teams;
-
+	
+	
+	
 	public Conference() {
 		
 	}
@@ -28,6 +30,7 @@ public class Conference {
 	public Conference(String name) {
 		super();
 		this.name = name;
+		
 	}
 
 	public long getConferenceid() {

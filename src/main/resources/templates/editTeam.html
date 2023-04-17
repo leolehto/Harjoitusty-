@@ -10,7 +10,9 @@
 <form th:object="${team}" th:action="@{../save}" action="#" method="post">
 <input type="hidden" th:field="*{id}" class="form-control"/>
 <input type="text" th:field="*{name}" />
+<br></br>
 <input type="text" th:field="*{qb}" />
+<br></br>
  <label for="divlist">Division</label>
  <select id="divlist" th:field="*{division}" class="form-control">
  	<option th:each="division:${divisions}"
@@ -23,6 +25,7 @@
  			th:value="${conference.conferenceid}"
  			th:text="${conference.name}"></option>
  </select>
+ <br></br>
  <input type="submit" class="btn btn-success" value="Save"></input>
 </form>
 </body>

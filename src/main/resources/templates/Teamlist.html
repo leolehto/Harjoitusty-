@@ -22,9 +22,9 @@
 	<th>Quarter back</th>
 	<th>Division</th>
 	<th>Conference</th>
-	<th>Delete team</th>
-	<th>Edit team</th>
-	<th sec:authorize="hasAuthority('ADMIN')"> </th>
+	<th sec:authorize="hasAuthority('ADMIN')">Delete team</th>
+	<th sec:authorize="hasAuthority('ADMIN')" >Edit team</th>
+	<th sec:authorize="hasAuthority('ADMIN')"></th>
 	
 </tr>
 <tr th:each= "team : ${teams}" >

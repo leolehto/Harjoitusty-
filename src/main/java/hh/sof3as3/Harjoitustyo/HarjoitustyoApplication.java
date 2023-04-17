@@ -28,10 +28,6 @@ public class HarjoitustyoApplication {
 		return (args) -> {
 			log.info("save a couple of teams");
 	
-		Conference conference1 = new Conference("AFC");
-		Conference conference2 = new Conference("NFC");
-		cRepository.save(conference1);			
-		cRepository.save(conference2);
 		Division division1 = new Division("East");
 		Division division2 = new Division("North");
 		Division division3 = new Division("South");
@@ -39,7 +35,11 @@ public class HarjoitustyoApplication {
 		dRepository.save(division1);
 		dRepository.save(division2);
 		dRepository.save(division3);
-		dRepository.save(division4);	
+		dRepository.save(division4);
+		Conference conference1 = new Conference("AFC");
+		Conference conference2 = new Conference("NFC");
+		cRepository.save(conference1);			
+		cRepository.save(conference2);
 		Team team1 = new Team("Miami Dolphins", "Tua Tagovailoa", division1, conference1);
 		Team team2 = new Team("Buffalo Bills", "Josh Allen", division1, conference1);
 		Team team3 = new Team("New England Patriots", "Mac Jones", division1, conference1);
@@ -71,10 +71,11 @@ public class HarjoitustyoApplication {
 		Team team29 = new Team("San Francisco 49ers", "Brock Purdy", division4, conference2);
 		Team team30 = new Team("Seattle Seahawks", "Geno Smith", division4, conference2);
 		Team team31 = new Team("Los Angeles Rams", "Matthew Stafford", division4, conference2);
-		Team team32 = new Team("Arizona Cardinals", "Kyler Murray", division4, conference1);
+		Team team32 = new Team("Arizona Cardinals", "Kyler Murray", division4, conference2);
 		teamRepository.save(team1);
 		teamRepository.save(team2);
 		teamRepository.save(team3);
+		teamRepository.save(team4);
 		teamRepository.save(team5);
 		teamRepository.save(team6);
 		teamRepository.save(team7);
